@@ -1,0 +1,21 @@
+{
+  "source_match": "2017461",
+  "validation_match": "2006229",
+  "validation_tracking_sha256": "3ee193ba01f1fe2cbce087eca8a881c21b8b0ea3485ae6c3d7e32e8b2f51e738",
+  "metrics": {
+    "half_1": {
+      "spell_f1": 0.45228758169934646,
+      "macro_f1": 0.8217491943738134,
+      "frames": 28471,
+      "true_spells": 122,
+      "predicted_spells": 184
+    },
+    "half_2": {
+      "spell_f1": 0.4253164556962026,
+      "macro_f1": 0.8207314517435677,
+      "frames": 30780,
+      "true_spells": 123,
+      "predicted_spells": 193
+    }
+  }
+}

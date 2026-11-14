@@ -1,0 +1,11 @@
+data/
+outputs/
+submission.csv
+submission_metadata.json
+*.mp4
+*.zip
+*.npz
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
