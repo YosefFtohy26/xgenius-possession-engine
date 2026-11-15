@@ -61,7 +61,10 @@ python -m pytest -q
 
 The current CSV has 199,319 rows. Two independent generations were byte-identical, with
 SHA-256 `ba7f7942f705a6704d567b7f08cab1efaca35e128608d86c6a8a736e799c158d`.
-The official format validator passes. The six focused public tests pass; the development checkout also passed 48 tests. The local automatic quality gate
+The official format validator passes. The six focused public tests pass. The original
+development suite passed 48 tests; after 12 retired-component tests were archived,
+36 active local tests pass. These are software checks, not match-accuracy tests.
+The local automatic quality gate
 has one nonfatal warning: 5.03 predicted possession spells per minute, slightly above its
 5.00 heuristic limit. The current CSV was not checked against the provided video or public labels. Earlier prototype work is disclosed in COMPLIANCE_REVIEW.md.
 

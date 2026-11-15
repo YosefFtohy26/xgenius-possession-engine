@@ -63,6 +63,7 @@ aggregates and the second tracking hash are in `candidate/external_validation.js
 The regenerated challenge `submission.csv` has 199,319 rows and SHA-256
 `ba7f7942f705a6704d567b7f08cab1efaca35e128608d86c6a8a736e799c158d`.
 A second run was byte-identical. The official format validator passes, the local automatic
-quality gate has 15 passes and one nonfatal spell-rate warning, and the test suite passes
-48 tests. None of these checks
+quality gate has 15 passes and one nonfatal spell-rate warning. The public source has
+six focused tests; the original development suite passed 48 tests, of which 36 remain
+active after archiving retired components. None of these checks
 measures challenge accuracy or substitutes for the organizers' private evaluation.
