@@ -5,7 +5,10 @@
 The system generates one `H`, `A`, `D`, or `X` label for each of the 199,319 tactical
 video frames. H and A denote the home and away teams in live possession; D denotes
 dead ball. Published graded-half boundaries determine where inference runs; all other
-frames receive X. There are no match-specific possession or kickoff overrides.
+frames receive X. The second half is graded from frame 110,808 but kicks off at 113,742;
+the 2,934-frame pre-kickoff block is set to D because no team can be in possession
+before kickoff. This structural rule uses the organizer-published kickoff time, not
+possession labels; there are no other match-specific overrides.
 
 ## Inputs and method
 
@@ -18,7 +21,8 @@ possession conditional on live play. Each has 89 inputs describing ball availabi
 motion, distance to pitch boundaries, nearby-player control, team movement and shape.
 Temporal means over 0.5, 2, and 5 seconds and time before/after control and observations
 provide context. Features are computed independently within each half. Future context
-makes this an offline method. Geometry uses a 105 by 68 m pitch for the provided match.
+makes this an offline method. Geometry uses a 105 by 68 m working pitch; the provided
+metadata records 105.3 by 68.0 m.
 
 Ball gaps of at most 0.4 seconds are interpolated between plausible endpoints. Longer
 gaps remain missing and availability is represented explicitly. Both team perspectives
@@ -50,6 +54,8 @@ are used for fitting or parameter selection. The final external six-half mean Sp
 is 0.7217; baseline 0.4730 on those same halves.
 These are external diagnostics, not competition scores. Match lists, hashes, settings,
 and per-half aggregate results are in [MODEL_PROVENANCE.md](MODEL_PROVENANCE.md).
+A reporting-only check on the public 5-minute window, after the model was frozen, gives
+SpellF1 0.6345 and MacroF1 0.8460; no settings were changed from that check.
 
 ## Possession rules and limitations
 
@@ -59,6 +65,8 @@ probabilities across each half and charges for team changes and live/dead transi
 Passes and loose balls can retain team possession through temporal context; no separate
 contested state is emitted. Missing ball data alone does not force D or X. Stoppages
 within a half must last at least 1 second; half-edge intervals are exempt.
+Before the second-half kickoff the ball is not in play, so the published pre-kickoff
+interval is D; this is applied after decoding and uses no possession labels.
 After D, renewed H/A control starts the next possession. Dead-ball ownership is not emitted.
 
 Tracking errors, missing balls, and differences between broadcast-derived external labels
@@ -79,5 +87,5 @@ python -m candidate.boosted_pipeline --output submission.csv --metadata submissi
 python evaluation/validate_submission.py submission.csv
 ```
 
-Expected CSV SHA-256: `ce872a26f65b5d7ce9d3659c0cd185b78cd5386177a01808cef0311c655e16af`.
+Expected CSV SHA-256: `c7b164111135b5db0f853cea70915675fa7ad12fb926d4a41521a81eb985a23c`.
 Install `requirements-dev.txt` and run `python -m pytest -q` for software checks.

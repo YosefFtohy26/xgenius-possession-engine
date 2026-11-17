@@ -16,10 +16,12 @@ python evaluation/validate_submission.py submission.csv
 ```
 
 Expected output: 199,319 rows, frames 0 through 199318. SHA-256:
-`ce872a26f65b5d7ce9d3659c0cd185b78cd5386177a01808cef0311c655e16af`
+`c7b164111135b5db0f853cea70915675fa7ad12fb926d4a41521a81eb985a23c`
 
 The frozen `candidate/boosted_model.joblib` is included. Exact CSV reproduction uses that
 artifact and the pinned environment; retraining is optional. Prediction uses one CPU thread.
+The pipeline applies one deterministic structural rule: the organizer-published
+second-half pre-kickoff block (frames 110,808–113,741) is set to D before writing the CSV.
 Match assets, CSV predictions, caches, and videos are excluded from this public repository.
 
 ## Optional external training

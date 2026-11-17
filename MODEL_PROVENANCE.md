@@ -1,6 +1,6 @@
 # External model provenance
 
-The submitted artifact is `candidate/boosted_model.joblib`, SHA-256
+The published model artifact is `candidate/boosted_model.joblib`, SHA-256
 `92d70f05567e12da49228284223fa60b456ed175c862a47eceee0ea498e92bbe`. All fitted weights and decoder selection use licensed
 external SkillCorner data. The full aggregate audit is [candidate/boosted_validation.json](candidate/boosted_validation.json).
 
@@ -58,4 +58,6 @@ Selected decoder (seconds-scaled transition costs):
 Follow README.md for inference from the included artifact. External data is not needed
 to regenerate the submission. Optional training downloads only the external source;
 organizer data is processed locally by the inference command. No video or match-specific
-label overrides are used. Expected submission SHA-256: `ce872a26f65b5d7ce9d3659c0cd185b78cd5386177a01808cef0311c655e16af`.
+possession labels are used. The only post-processing rule sets the organizer-published
+second-half pre-kickoff interval to D. Expected submission SHA-256:
+`c7b164111135b5db0f853cea70915675fa7ad12fb926d4a41521a81eb985a23c`.
