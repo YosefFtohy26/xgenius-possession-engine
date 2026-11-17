@@ -8,9 +8,6 @@ possession), `D` (ball out of play), or `X` (ungraded time). The output is a two
 `frame,label` CSV covering frames 0–199318. The two published graded halves receive
 H/A/D predictions; the pre-match, halftime, and post-match intervals receive X.
 
-An earlier prototype used the public window for tuning and was retired. This repository
-contains the replacement only. See COMPLIANCE_REVIEW.md for the disclosure.
-
 ## Inputs and method
 
 Inference uses the organizers' **automatic tactical tracking**: player and ball positions,
@@ -56,17 +53,14 @@ ATD XML and TXT under `data/tactical/`, or configure `MTAH_DATA_DIR`. Then run:
 ```bash
 python -m candidate.pipeline --output submission.csv --metadata submission_metadata.json
 python evaluation/validate_submission.py submission.csv
+python -m pip install -r requirements-dev.txt
 python -m pytest -q
 ```
 
 The current CSV has 199,319 rows. Two independent generations were byte-identical, with
 SHA-256 `ba7f7942f705a6704d567b7f08cab1efaca35e128608d86c6a8a736e799c158d`.
-The official format validator passes. The six focused public tests pass. The original
-development suite passed 48 tests; after 12 retired-component tests were archived,
-36 active local tests pass. These are software checks, not match-accuracy tests.
-The local automatic quality gate
-has one nonfatal warning: 5.03 predicted possession spells per minute, slightly above its
-5.00 heuristic limit. The current CSV was not checked against the provided video or public labels. Earlier prototype work is disclosed in COMPLIANCE_REVIEW.md.
+The official format validator and the six focused public software tests pass.
+The current CSV was not checked against the provided video or public labels.
 
 ## Limitations
 

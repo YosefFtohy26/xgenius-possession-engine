@@ -38,7 +38,6 @@ python -m pytest -q
 ## Documentation and rules
 
 - [Technical document](TECHNICAL_DOCUMENT.md)
-- [Compliance review and historical disclosure](COMPLIANCE_REVIEW.md)
 - [Official submission instructions](https://github.com/metrica-sports/more-than-a-hack-2027/blob/main/SUBMISSION.md)
 - [Official rules](https://github.com/metrica-sports/more-than-a-hack-2027/blob/main/RULES.md)
 

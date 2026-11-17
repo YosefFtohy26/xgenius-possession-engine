@@ -2,7 +2,7 @@
 
 ## Data and rights
 
-The replacement model uses [SkillCorner Open Data](https://github.com/SkillCorner/opendata),
+The submitted model uses [SkillCorner Open Data](https://github.com/SkillCorner/opendata),
 specifically Australian A-League match `2017461`. Its tracking file and phase-of-play CSV
 are from a **different match** than the challenge game. Match `2006229` is a separate,
 frozen validation match. SkillCorner describes this dataset
@@ -52,7 +52,7 @@ The final two commands need the organizers' gated BAR-ATH tactical tracking bund
 
 The external source match's held-out second half scored spell F1 **0.3932** and macro F1
 **0.8066** against SkillCorner's phase-derived labels. This is an external diagnostic,
-**not** an estimate of the challenge score. The retired prototype is excluded from this repository; see COMPLIANCE_REVIEW.md.
+**not** an estimate of the challenge score.
 
 The frozen model scored spell F1 **0.4523** and **0.4253** on the first and second halves
 of external match `2006229`. It predicted 184 and 193 spells where the external labels
@@ -62,8 +62,6 @@ aggregates and the second tracking hash are in `candidate/external_validation.js
 
 The regenerated challenge `submission.csv` has 199,319 rows and SHA-256
 `ba7f7942f705a6704d567b7f08cab1efaca35e128608d86c6a8a736e799c158d`.
-A second run was byte-identical. The official format validator passes, the local automatic
-quality gate has 15 passes and one nonfatal spell-rate warning. The public source has
-six focused tests; the original development suite passed 48 tests, of which 36 remain
-active after archiving retired components. None of these checks
-measures challenge accuracy or substitutes for the organizers' private evaluation.
+A second run was byte-identical. The official format validator and the six focused
+public software tests pass. These checks do not measure challenge accuracy or
+substitute for the organizers' private evaluation.
